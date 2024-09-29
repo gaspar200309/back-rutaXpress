@@ -19,4 +19,13 @@ public class UserController {
         userService.save(user);
 
     }
+    @GetMapping("/hello")
+    public String hello () {
+        return "Hello";
+    }
+
+    @GetMapping("/helloSecured")
+    public String bye () {
+        return "BHello secured";
+    }
 }

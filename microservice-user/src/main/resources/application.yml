@@ -1,27 +1,21 @@
-server:
-  port: 8090
-
-
 spring:
   application:
     name: msvc-user
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/userDB
-    username: gaspar
-    password: armando1gaspar
-    jpa:
-      hibernate:
-          ddl-auto: create
-      database: postgresql
-      database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-    config:
+  config:
       import: optional:configserver:http://localhost:8888
 
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+spring.security.user.name: user
+spring.security.user.password: password
+spring.security.user.roles: USER
+
+# github
+spring.security.filter.oauth2.client.registration.github.client-id: GITHUB_CLIENT_ID
+spring.security.filter.oauth2.client.registration.github.client-secret: GITHUB_CLIENT_SECRET
+
+# google
+spring.security.oauth2.client.registration.google.client-id: GOOGLE_CLIENT_ID
+spring.security.oauth2.client.registration.google.client-secret: GOOGLE_CLIENT_SECRET
+
+# facebook
+spring.security.oauth2.client.registration.facebook.client-id: FACEBOOK_CLIENT_ID
+spring.security.oauth2.client.registration.facebook.client-secret: FACEBOOK_CLIENT_SECRET
