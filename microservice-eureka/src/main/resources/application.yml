@@ -1,17 +1,6 @@
-server:
-  port: 8761
 
 spring:
   application:
     name: msvc-eureka
   config:
     import: optional:configserver:http://localhost:8888
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://localhost:${server.port}/eureka/

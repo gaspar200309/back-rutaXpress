@@ -1,22 +1,22 @@
 package com.microservice_user.controller;
 
-import com.microservice_user.entities.User;
-import com.microservice_user.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
-    @Autowired
-    private IUserService userService;
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, public route!";
+    }
 
-    @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void saveStudent(@RequestBody User user) {
-        userService.save(user);
-
+    @GetMapping("/me")
+    public Jwt getCurrentUser(@AuthenticationPrincipal Jwt jwt) {
+        return jwt;
     }
 }
