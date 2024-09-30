@@ -1,21 +1,31 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: msvc-user
   config:
-      import: optional:configserver:http://localhost:8888
+    import: optional:configserver:http://localhost:8888
 
-spring.security.user.name: user
-spring.security.user.password: password
-spring.security.user.roles: USER
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: GITHUB_CLIENT_ID
+            client-secret: GITHUB_CLIENT_SECRET
+          google:
+            client-id: GOOGLE_CLIENT_ID
+            client-secret: GOOGLE_CLIENT_SECRET
+          facebook:
+            client-id: FACEBOOK_CLIENT_ID
+            client-secret: FACEBOOK_CLIENT_SECRET
 
-# github
-spring.security.filter.oauth2.client.registration.github.client-id: GITHUB_CLIENT_ID
-spring.security.filter.oauth2.client.registration.github.client-secret: GITHUB_CLIENT_SECRET
+#  security.oauth2.resourceserver.jwt:
+#    issuer-uri: http://localhost:8080/realms/rutaxpress
+#    jwk-set-uri: http://localhost:8080/realms/rutaxpress/protocol/openid-connect/certs
 
-# google
-spring.security.oauth2.client.registration.google.client-id: GOOGLE_CLIENT_ID
-spring.security.oauth2.client.registration.google.client-secret: GOOGLE_CLIENT_SECRET
-
-# facebook
-spring.security.oauth2.client.registration.facebook.client-id: FACEBOOK_CLIENT_ID
-spring.security.oauth2.client.registration.facebook.client-secret: FACEBOOK_CLIENT_SECRET
+# Default Spring Security user for testing (optional)
+#spring.security.user.name: user
+#spring.security.user.password: password
+#spring.security.user.roles: USER
