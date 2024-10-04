@@ -16,10 +16,6 @@ spring:
           enabled: true
       routes:
         - id: user
-          uri: http://localhost:8081
+          uri: 'http://localhost:8081'
           predicates:
             - Path=/api/users/**
-        #- id: rutas
-         # uri: http://localhost:9090
-          #predicates:
-           # - Path=/api/rutas/**
