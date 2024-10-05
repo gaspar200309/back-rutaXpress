@@ -7,19 +7,19 @@ spring:
   config:
     import: optional:configserver:http://localhost:8888
 
-  security:
-    oauth2:
-      client:
-        registration:
-          github:
-            client-id: GITHUB_CLIENT_ID
-            client-secret: GITHUB_CLIENT_SECRET
-          google:
-            client-id: GOOGLE_CLIENT_ID
-            client-secret: GOOGLE_CLIENT_SECRET
-          facebook:
-            client-id: FACEBOOK_CLIENT_ID
-            client-secret: FACEBOOK_CLIENT_SECRET
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          github:
+#            client-id: GITHUB_CLIENT_ID
+#            client-secret: GITHUB_CLIENT_SECRET
+#          google:
+#            client-id: GOOGLE_CLIENT_ID
+#            client-secret: GOOGLE_CLIENT_SECRET
+#          facebook:
+#            client-id: FACEBOOK_CLIENT_ID
+#            client-secret: FACEBOOK_CLIENT_SECRET
 
 #  security.oauth2.resourceserver.jwt:
 #    issuer-uri: http://localhost:8080/realms/rutaxpress
